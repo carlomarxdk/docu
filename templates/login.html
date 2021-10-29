@@ -19,5 +19,11 @@
         <p class="error"><strong>Error:</strong> {{ error }}
       {% endif %}
     </div>
+
+    <form action = "http://localhost:5000/up" method = "POST" 
+    enctype = "multipart/form-data">
+    <input type = "file" name = "file" />
+    <input type = "submit"/>
+    
   </body>
 </html>
