@@ -44,18 +44,18 @@
    <p>USERSSS</p>
       <table class="styled-table">
          <thead>
-            <td>Name</td>
-            <td>Address</td>
-            <td>city</td>
-            <td>Pincode</td>
+            <td>ID</td>
+            <td>Full Name</td>
+            <td>Email</td>
+            <td>Role</td>
          </thead>
          
          {% for row in rows %}
             <tr>
-               <td>{{row["name"]}}</td>
-               <td>{{row["password"]}}</td>
-               <td> {{ row["location"]}}</td>
-               <td>{{row['id']}}</td>	
+               <td>{{row["ID"]}}</td>
+               <td>{{row["Full Name"]}}</td>
+               <td> {{ row["Email"]}}</td>
+               <td>{{row['Role']}}</td>	
             </tr>
          {% endfor %}
       </table>
