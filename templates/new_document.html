@@ -1,10 +1,14 @@
 <html>
   <body>
     <h2>CASE NR {{ case_id }}</h2>
-    <form action = "http://localhost:5000/up" method = "POST" 
+    <form action = "/add" method = "POST" 
     enctype = "multipart/form-data">
+
+
+
+
     <div>File Name:   </div>          
-    <div><input type = "text" name = "file" /></div>
+    <div><input type = "text" name = "file_name" /></div>
     <div>Document Type:   </div>          
     <div><input type = "text", name="type"></div>
     <div>Responsible:</div>
@@ -23,6 +27,7 @@
      
 
 
+    {{res}}
 
   </body>
 </html>

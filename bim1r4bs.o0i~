@@ -47,9 +47,7 @@ def add():
         type = request.form.get("type")
         file_name = request.form.get("file_name")
         file_appr = request.form.get("type")
-        con = sql.connect(DATABASE)
         #con.row_factory = sql.Row
-        cur = con.cursor()
         pattern = """INSERT INTO documents(description, type) VALUES(?, ?);"""
         cur.execute(pattern, (file_appr, file_name))
         con.commit()
