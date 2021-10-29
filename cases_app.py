@@ -7,15 +7,15 @@ DATABASE = 'database/data.db'
 app = Flask(__name__)
 
 @app.route('/')
-def get_users():
+def get_users() -> []:
    con = sql.connect(DATABASE)
    con.row_factory = sql.Row
    
    cur = con.cursor()
-   cur.execute("select * from users")
+   cur.execute("SELECT * FROM CASES")
    
    rows = cur.fetchall();
-   return render_template("list.html",rows = rows)
+   return render_template("cases.html",rows = rows)
 
 if __name__ == '__main__':
    app.run(debug = True)
