@@ -1,7 +1,17 @@
 <!doctype html>
 <html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
+    <!-- Custom styles for this template -->
+    <link href="grid.css" rel="stylesheet">
+
+    <style>
 .styled-table {
     border-collapse: collapse;
     margin: 25px 0;
@@ -40,27 +50,37 @@
 
 
 </style>
+</head>
    <body>
-   <p>USERSSS</p>
-      <table class="styled-table">
-         <thead>
-            <td>Title</td>
-            <td>Description</td>
-            <td>Date</td>
+        <div class="container-fluid">
+            <div class="justify-content-md-center">
+                <div class="col col-lg-2">
+                    <table class="styled-table  table-responsive">
+                        <thead>
+                            <td>Title</td>
+                            <td>Description</td>
+                            <td>Date</td>
+                            <td>Price</td>
+                            <td>Creator</td>
+                            <td>Link</td>
+                        </thead>
+                        {% for row in rows %}
+                        <tr>
+                        <td>{{row["TITLE"]}}</td>
+                            <td>{{row["DESCRIPTION"]}}</td>
+                            <td>{{row["CREATION DATE"]}}</td>
+                            <td>{{row["PRICE"]}}</td>	
+                            <td>{{row["RESPONSIBLE"]}}</td>	
+                            <td><button type="button" value={{row["ID"]}}>Open</button>
+</td>
 
-            <td>Responsible</td>
-         </thead>
-         
-         {% for row in rows %}
-            <tr>
-               <td>{{row["TITLE"]}}</td>
-               <td>{{row["DESCRIPTION"]}}</td>
-               <td>{{row["DATE"]}}</td>
-               <td>none</td>	
-            </tr>
+                </tr>
          {% endfor %}
-      </table>
-      
-      <a href = "/">Go back to home page</a>
+        </table>
+      </div>
+            </div>
+
+      </div>
+
    </body>
 </html>

@@ -14,8 +14,12 @@ def get_users() -> []:
    cur = con.cursor()
    cur.execute("SELECT * FROM CASES")
    
-   rows = cur.fetchall();
-   return render_template("cases.html",rows = rows)
+   cases = cur.fetchall();
+
+
+
+
+   return render_template("cases.html",rows = cases)
 
 if __name__ == '__main__':
    app.run(debug = True)
