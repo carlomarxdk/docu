@@ -45,7 +45,7 @@
   <body>
     <h2>CASE NR {{ case_info[0] }}</h2>
     <div>
-      <h4>{{ case_info[1] }}</h4>
+      <h3>{{ case_info[1] }}</h3>
       </div>
     <div>
         Description: {{ case_info[2] }}
@@ -55,13 +55,15 @@
                             <td>ID</td>
                             <td>Type</td>
                             <td>Description</td>
+                            <td>Action</td>
+                            <td>Submit</td>
 
                         </thead>
                         {% for row in documents %}
-                        <tr>
+                        
                         <td>{{row["ID"]}}</td>
                         <td>{{row["DOCUMENT TYPE"]}}</td>
-                            <td>{{row["DESCRIPTION"]}}</td>
+                        <td>{{row["DESCRIPTION"]}}</td>
 
 
      
