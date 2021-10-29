@@ -7,7 +7,7 @@ DATABASE = 'database/data.db'
 app = Flask(__name__)
 
 @app.route('/')
-def list():
+def get_users():
    con = sql.connect(DATABASE)
    con.row_factory = sql.Row
    
@@ -16,6 +16,9 @@ def list():
    
    rows = cur.fetchall();
    return render_template("list.html",rows = rows)
+
+
+
 
 if __name__ == '__main__':
    app.run(debug = True)
