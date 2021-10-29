@@ -71,8 +71,14 @@
                             <td>{{row["CREATION DATE"]}}</td>
                             <td>{{row["PRICE"]}}</td>	
                             <td>{{row["RESPONSIBLE"]}}</td>	
-                            <td><button type="button" value={{row["ID"]}}>Open</button>
-</td>
+                            <td>
+                                <form action="/" method="post">
+                                    <input type="hidden"  name="case_id" value={{row["ID"]}}>
+                                    <input type="submit"  value="Open">
+
+                                </form>
+
+                                    </td>
 
                 </tr>
          {% endfor %}
