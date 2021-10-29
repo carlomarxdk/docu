@@ -50,7 +50,7 @@
     <div>
         Description: {{ case_info[2] }}
     </div>
-    <p><table id="myTable" class="styled-table  table-responsive">
+    <table id="myTable" class="styled-table  table-responsive">
                         <thead>
                             <td>ID</td>
                             <td>Type</td>
@@ -64,16 +64,15 @@
                         <td>{{row["ID"]}}</td>
                         <td>{{row["DOCUMENT TYPE"]}}</td>
                         <td>{{row["DESCRIPTION"]}}</td>
-
-
-     
                 </tr>
          {% endfor %}
         </table>
 
-        <form action="/" method="post">
-            <input type="submit" name="NA" value="Open">
-        </form></p>
+        <form action="/add" method="get">
+            <input name="case_id" value={{case_info[0]}}
+             <input type="submit"  value="Open">
+        </form>
+        {{case_info[0]}}
 
   </body>
 </html>
