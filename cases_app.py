@@ -21,6 +21,13 @@ def get_overview():
 @app.route('/output')
 def output():
     value = request.args.get('case_id', None)
-    return render_template("output.html",case_id = value)
+    con = sql.connect(DATABASE)
+    con.row_factory = sql.Row
+    cur = con.cursor()
+    cur.execute("SELECT * from CASES WHERE ID IS %s" %value )
+    case = cur.fetchall()[0];
+    cur.execute("SELECT * from DOCUMENTS WHERE CASE_ID IS %s" %value )
+    documents = cur.fetchall();
+    return render_template("output.html", case_info  = case, documents = documents )
 if __name__ == '__main__':
    app.run(debug = True)
