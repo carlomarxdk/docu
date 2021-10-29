@@ -1,0 +1,25 @@
+<html>
+  <body>
+    <h2>CASE NR {{ case_id }}</h2>
+
+    <div>ADD FILE:   </div>          
+   
+
+
+    <form action = "http://localhost:5000/up" method = "POST" 
+    enctype = "multipart/form-data">
+
+    <input type = "text" name = "file" />
+    <input type = "text", name="type">
+    <option value= "{{users}}" SELECTED>{{ users }}</option>
+    <input type = "submit"/></div>
+
+     
+  
+    <form action = "http://localhost:5000/up" method = "POST" 
+    enctype = "multipart/form-data">
+    <input type = "file" name = "file" />
+    <input type = "submit"/>
+
+  </body>
+</html>
