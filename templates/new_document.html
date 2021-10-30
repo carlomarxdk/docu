@@ -10,12 +10,12 @@
     <div>Document Type: </div>          
     <div><input type = "text", name="file_type" value="INVOICE"></div>
     <div>Responsible:</div>
-    <div><select  name="users" method = "GET" action="/">
-    {% for user in users %}
-    <option value= "{{user}}" SELECTED>{{ user["FULL NAME"] }}</option>
-          {% endfor %}
-
-    </select>
+    <div>
+        <select  name="users" method = "GET" action="/">
+            {% for user in users %}
+                <option value= "{{user["FULL NAME"]}}" SELECTED>{{ user["FULL NAME"] }}</option>
+            {% endfor %}
+        </select>
     </div>
     <input type="hidden"  name="case_id" value = {{ case_id }}>
 

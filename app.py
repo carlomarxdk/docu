@@ -45,7 +45,7 @@ def add():
     users = cur.fetchall();
     if request.method == "POST":
         ## Collect data from the form
-        case_id = int(request.form.get("case_id", None))
+        case_id = int(request.form.get("case_id"))
         file_name = request.form.get("file_name")
         file_desc = request.form.get("file_description")
         file_type = request.form.get("file_type")
@@ -54,7 +54,7 @@ def add():
         con = sql.connect(DATABASE)
         cur = con.cursor()
         pattern = """INSERT INTO documents(type, description, case_id, responsible) VALUES(?, ?, ?, ?);"""
-        cur.execute(pattern, (file_type, file_desc, case_id, file_appr))
+        cur.execute(pattern, (file_type, file_desc, case_id, str(file_appr)))
         con.commit()
         ## Data for the OUTPUT.HTML
         return render_template("new_document.html", users = users, case_id = case_id)
