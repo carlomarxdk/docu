@@ -55,15 +55,21 @@
                             <td>ID</td>
                             <td>Type</td>
                             <td>Description</td>
-                            <td>Action</td>
-                            <td>Submit</td>
+                            <td>File</td>
+                            <td>Creation Date</td>
+                            <td>Responsible</td>
 
                         </thead>
                         {% for row in documents %}
                         
                         <td>{{row["ID"]}}</td>
-                        <td>{{row["DOCUMENT TYPE"]}}</td>
+                        <td>{{row["TYPE"]}}</td>
                         <td>{{row["DESCRIPTION"]}}</td>
+                        <td><a href = {{row["FILE_PATH"]}} target="_blank"> Download </a></td>
+                        <td>{{row["CREATION_DATE"]}}</td>
+                        <td>{{row["RESPONSIBLE"]}}</td>
+
+
                 </tr>
          {% endfor %}
         </table>
