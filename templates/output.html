@@ -82,6 +82,8 @@
                             <td>File</td>
                             <td>Creation Date</td>
                             <td>Responsible</td>
+                            <td>Current Status</td>
+                            <td>Action</td>
 
                         </thead>
                         {% for row in documents %}
@@ -92,6 +94,14 @@
                         <td><a href = {{row["FILE_PATH"]}} target="_new"> Download </a></td>
                         <td>{{row["CREATION_DATE"]}}</td>
                         <td>{{row["RESPONSIBLE"]}}</td>
+                        <td> VALUE</td>
+                        <td> <select  name="users" method = "GET" action="/">
+                             <option value= "PENDING" SELECTED> PENDING</option>
+                                <option value= "APPROVED" > APPROVED</option>
+                                <option value= "DECLINED" > DECLINED</option>
+                                <option value= "DELETE" > DELETE</option>
+                            </select></td>
+                        
 
 
                 </tr>
@@ -102,6 +112,11 @@
         <form action="/add" method="get">
              <input type="hidden" name="case_id" value={{ case_info[0] }}>
              <input type="submit"  value="Add New Document">
+        </form>
+
+        <form action="/cases" method="get">
+             <input type="hidden" name="case_id" value={{ case_info[0] }}>
+             <input type="submit"  value="Submit">
         </form>
 
                 </div>
