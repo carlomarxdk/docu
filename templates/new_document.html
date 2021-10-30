@@ -1,28 +1,26 @@
 <html>
   <body>
-    <h2>CASE NR {{ case_id }}</h2>
-    <form action = "/add" method = "POST" 
-    enctype = "multipart/form-data">
-
-
-
+    <h2>CASE NR. {{ case_id }}</h2>
+    <form action = "/output" method = "post" enctype = "multipart/form-data">
 
     <div>File Name:   </div>          
-    <div><input type = "text" name = "file_name" /></div>
+    <div><input type = "text" name = "file_name"></div>
     <div>Document Type:   </div>          
     <div><input type = "text", name="type"></div>
     <div>Responsible:</div>
      <select  name="users" method = "GET" action="/">
     {% for user in users %}
-    <option value= "{{user}}" SELECTED>{{ user["FULL NAME"]}}</option>
+    <option value= "{{user}}" SELECTED>{{ user["FULL NAME"] }}</option>
           {% endfor %}
 
     </select>
     <div>Upload File </div>          
     <div><input type = "text", name="type"></div>
 
-    <input type = "file" name = "file" />
-    <input type = "submit"/>
+    <input type = "file" name = "file">
+    <input type="hidden"  name="case_id" value={{ case_id }}>
+
+    <input type = "submit">
     </form>
      
 

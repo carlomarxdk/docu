@@ -43,7 +43,7 @@
   
   </head>
   <body>
-    <h2>CASE NR {{ case_info[0] }}</h2>
+    <h2>CASE NR. {{ case_info[0] }}</h2>
     <div>
       <h3>{{ case_info[1] }}</h3>
       </div>
@@ -69,10 +69,9 @@
         </table>
 
         <form action="/add" method="get">
-            <input name="case_id" value={{case_info[0]}}
-             <input type="submit"  value="Open">
+             <input type="hidden" name="case_id" value={{ case_info[0] }}>
+             <input type="submit"  value="Add New Document">
         </form>
-        {{case_info[0]}}
 
   </body>
 </html>
