@@ -44,20 +44,20 @@ def add():
     cur.execute("SELECT * from USERS" )
     users = cur.fetchall();
     if request.method == "POST":
-        case_id = request.form.get("case_id", None)
-
         ## Collect data from the form
-        type = request.form.get("type")
+        case_id = int(request.form.get("case_id", None))
         file_name = request.form.get("file_name")
-        file_appr = request.form.get("type")
+        file_desc = request.form.get("file_description")
+        file_type = request.form.get("file_type")
+        file_appr = request.form.get("users")
         ## Insert into the database
         con = sql.connect(DATABASE)
         cur = con.cursor()
-        pattern = """INSERT INTO documents(description, type) VALUES(?, ?);"""
-        cur.execute(pattern, (file_appr, file_name))
+        pattern = """INSERT INTO documents(type, description, case_id, responsible) VALUES(?, ?, ?, ?);"""
+        cur.execute(pattern, (file_type, file_desc, case_id, file_appr))
         con.commit()
         ## Data for the OUTPUT.HTML
-        return redirect(from_url(".output", case_id = case_id))
+        return render_template("new_document.html", users = users, case_id = case_id)
         #return render_template("output.html", case_info  = case_info, documents = documents)
     return render_template("new_document.html", users = users, case_id = case_id)
 
