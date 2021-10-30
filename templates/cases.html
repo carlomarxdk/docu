@@ -88,7 +88,7 @@
                             <td>{{row["PRICE"]}}</td>	
                             <td>{{row["RESPONSIBLE"]}}</td>	
                             <td>
-                    <form action="/" method="post">
+                    <form action="/output" method="get">
                         <input type="hidden"  name="case_id" value={{row["ID"]}}>
                         <input type="submit"  value="Open">
 

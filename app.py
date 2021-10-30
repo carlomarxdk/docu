@@ -15,8 +15,14 @@ DATABASE = 'database/data.db'
 
 app = Flask(__name__)
 
-@app.route('/', methods = ['GET', 'POST'])
-def get_overview():
+@app.route('/', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        return redirect(url_for('.cases'))
+    return render_template('login.html')
+
+@app.route('/cases', methods = ['GET', 'POST'])
+def cases():
     con = sql.connect(DATABASE)
     con.row_factory = sql.Row
     cur = con.cursor()
@@ -45,10 +51,6 @@ def output():
         return redirect(url_for("add"), case_id = case_id)
     return render_template("output.html", case_info  = case_info, documents = documents, dir = current_app.root_path)
 
-@app.route('/<path:filename>', methods=['GET', 'POST'])
-def download(filename):
-    uploads = os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'])
-    return send_from_directory(directory=uploads, filename=filename)
 
 @app.route('/add', methods = ['GET', 'POST'])
 def add():
@@ -90,15 +92,7 @@ def add():
         return redirect(url_for(".output", case_id = case_id))
     return render_template("new_document.html", users = users, case_id = case_id)
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    error = None
-    if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-            error = 'Invalid Credentials. Please try again.'
-        else:
-            return redirect(url_for('home'))
-    return render_template('login.html', error=error)
+
 
 if __name__ == '__main__':
    app.run(debug = True)

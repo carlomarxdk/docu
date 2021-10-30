@@ -37,29 +37,33 @@
           
           <h1>Please Login</h1>
           <br>
+                    <form action="/cases" method="get">
+
           <table>
+
             <tr>
               <th>
-              <form action="" method="post">
                 <label>Username</label>
-                <input type="text" placeholder="Username" name="username" value="{{
-                  request.form.username }}"></form>
+                <input type="text" placeholder="Username" name="username"></form>
               </th>
             </tr>
     
             <tr>
               <th>
-              <form action="" method="post">
+ 
                 <label>Password</label>
-                <input type="password" placeholder="Password" name="password" value="{{ request.form.password }}"></form>
+                <input type="password" placeholder="Password" name="password"></form>
               </th>
             </tr>
           </table>
+
           <br>
           <input class="btn btn-default" type="submit" value="Login">
         </div>  
       <div class="col">
       </div>
+                  </form>
+
     </div>
   </div>
   
