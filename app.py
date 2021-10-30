@@ -43,13 +43,18 @@ def output():
     cur.execute("SELECT * from CASES WHERE ID IS %s" %value)
     case_info = cur.fetchall()[0];
     cur.execute("SELECT * from DOCUMENTS WHERE CASE_ID IS %s" %value)
-    documents = cur.fetchall();   
+    documents = cur.fetchall();  
+    
+    status = {}
+    for document in documents:
+        cur.execute("SELECT * FROM APPROVALS WHERE DOC_ID = '%s' ORDER BY id DESC LIMIT 0 , 1 " %document["ID"])
+        status[document["ID"]] = cur.fetchall()[0]["STATUS"]
 
     if request.method == "POST":
         case_id = request.form.get("case_id", None)
         #return redirect(url_for("output", case_id = n))
         return redirect(url_for("add"), case_id = case_id)
-    return render_template("output.html", case_info  = case_info, documents = documents, dir = current_app.root_path)
+    return render_template("output.html", case_info  = case_info, documents = documents, dir = current_app.root_path, status = status)
 
 
 @app.route('/add', methods = ['GET', 'POST'])
@@ -67,7 +72,7 @@ def add():
         file_desc = request.form.get("file_description")
         file_type = request.form.get("file_type")
         file_appr = request.form.get("users")
-        file_id = str(uuid.uuid4())
+        file_id = str(uuid.uuid4()).replace("-", "")
         file = request.form.get("file")
         file_datetime = datetime.datetime.now()
         file = request.files['file']

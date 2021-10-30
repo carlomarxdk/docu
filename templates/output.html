@@ -67,11 +67,8 @@
         </button>
     
     </nav>
-
-    
     <div class="container-fluid">
         <div class="justify-content-md-center">
-
                 <div class="rows">
                     <div class="table-responsive">
                     <table class="styled-table ">
@@ -94,9 +91,9 @@
                         <td><a href = {{row["FILE_PATH"]}} target="_new"> Download </a></td>
                         <td>{{row["CREATION_DATE"]}}</td>
                         <td>{{row["RESPONSIBLE"]}}</td>
-                        <td> VALUE</td>
+                        <td> {{status[row["ID"]]}}</td>
                         <td> <select  name="users" method = "GET" action="/">
-                             <option value= "PENDING" SELECTED> PENDING</option>
+                             <option value= "" SELECTED></option>
                                 <option value= "APPROVED" > APPROVED</option>
                                 <option value= "DECLINED" > DECLINED</option>
                                 <option value= "DELETE" > DELETE</option>
