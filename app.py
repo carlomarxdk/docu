@@ -57,8 +57,9 @@ def add():
         cur.execute(pattern, (file_type, file_desc, case_id, str(file_appr)))
         con.commit()
         ## Data for the OUTPUT.HTML
-        return render_template("new_document.html", users = users, case_id = case_id)
+        #return render_template("new_document.html", users = users, case_id = case_id)
         #return render_template("output.html", case_info  = case_info, documents = documents)
+        return redirect(url_for(".output", case_id = case_id))
     return render_template("new_document.html", users = users, case_id = case_id)
 
 
