@@ -1,6 +1,18 @@
 <html>
-  <head>
-      <style>
+  
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
 .styled-table {
     border-collapse: collapse;
     margin: 25px 0;
@@ -11,7 +23,7 @@
 }
 
 .styled-table thead tr {
-    background-color: #009879;
+    background-color: #D7211E;
     color: #ffffff;
     text-align: left;
 }
@@ -29,7 +41,7 @@
 }
 
 .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #D7211E;
 }
 
 .styled-table tbody tr.active-row {
@@ -40,17 +52,29 @@
 
 </style>
   
-  
   </head>
   <body>
-    <h2>CASE NR. {{ case_info[0] }}</h2>
-    <div>
-      <h3>{{ case_info[1] }}</h3>
-      </div>
-    <div>
-        Description: {{ case_info[2] }}
-    </div>
-    <table id="myTable" class="styled-table  table-responsive">
+    <nav class="navbar navbar-light justify-content-between">
+        <a class="navbar-brand" href="#">
+            <img src="https://www.msf.org/themes/custom/msf_theme/ogimage.jpg" width="200" height="100" class="d-inline-block align-top" alt="" loading="lazy"></a>
+        
+            <a class="navbar-brand">CASE: {{ case_info[0] }}</a>
+            
+          <button border-color:#D7211E;> 
+
+            <a class="btn my-2 my-sm-0" role="button" href="login">Log Out</a>
+        
+        </button>
+    
+    </nav>
+
+    
+    <div class="container-fluid">
+        <div class="justify-content-md-center">
+
+                <div class="rows">
+                    <div class="table-responsive">
+                    <table class="styled-table ">
                         <thead>
                             <td>ID</td>
                             <td>Type</td>
@@ -71,13 +95,25 @@
 
 
                 </tr>
-         {% endfor %}
+            {% endfor %}
         </table>
-
+        
+        <br> 
         <form action="/add" method="get">
              <input type="hidden" name="case_id" value={{ case_info[0] }}>
              <input type="submit"  value="Add New Document">
         </form>
 
+                </div>
+    </div>
+        </div>
+        
+
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 </html>

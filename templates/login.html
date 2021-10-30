@@ -3,37 +3,68 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="signin.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <style>
+      body {
+        display: -ms-flexbox;
+        display: -webkit-box;
+        display: flex;
+        -ms-flex-align: center;
+        -ms-flex-pack: center;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #ffffff;
+      }
+    </style>
+    
   </head>
 <body>
-    <div class="container">
-      <img src="/templates/dwb.jpeg" width="350" height="150" class="d-inline-block align-top<aaa" alt="" loading="lazy">
-      <h1>Please Login</h1>
-      <br>
-      <table>
-        <tr>
-          <th>
-          <form action="" method="post">
-            <label>Username</label>
-            <input type="text" placeholder="Username" name="username" value="{{
-              request.form.username }}"></form>
-          </th>
-        </tr>
 
-        <tr>
-          <th>
-          <form action="" method="post">
-            <label>Password</label>
-            <input type="password" placeholder="Password" name="password" value="{{ request.form.password }}"></form>
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <input class="btn btn-default" type="submit" value="Login">
-          </th>
-        </tr>
-      </table>
+
+  
+  <div class="container">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+          <img src="https://www.msf.org/themes/custom/msf_theme/ogimage.jpg" width="550" height="250" class="d-inline-block align-top">
+          
+          <h1>Please Login</h1>
+          <br>
+          <table>
+            <tr>
+              <th>
+              <form action="" method="post">
+                <label>Username</label>
+                <input type="text" placeholder="Username" name="username" value="{{
+                  request.form.username }}"></form>
+              </th>
+            </tr>
+    
+            <tr>
+              <th>
+              <form action="" method="post">
+                <label>Password</label>
+                <input type="password" placeholder="Password" name="password" value="{{ request.form.password }}"></form>
+              </th>
+            </tr>
+          </table>
+          <br>
+          <input class="btn btn-default" type="submit" value="Login">
+        </div>  
+      <div class="col">
+      </div>
     </div>
+  </div>
+  
+  
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script> 
   </body>
 </html>
