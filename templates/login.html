@@ -1,32 +1,39 @@
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title>Flask Intro - login page</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="signin.css" rel="stylesheet">
   </head>
-  <body>
+<body>
     <div class="container">
-      <nav class="navbar navbar-expand-lg">
-		  <a class="navbar-brand" href="#">
-			<img src="dwb.jpeg" width="250" height="100" class="d-inline-block align-top" alt="" loading="lazy"></a></nav>
-      <h1>Please login</h1>
+      <img src="/templates/dwb.jpeg" width="350" height="150" class="d-inline-block align-top<aaa" alt="" loading="lazy">
+      <h1>Please Login</h1>
       <br>
-      <form action="" method="post">
-        <input type="text" placeholder="Username" name="username" value="{{
-          request.form.username }}">
-         <input type="password" placeholder="Password" name="password" value="{{
-          request.form.password }}">
-        <input class="btn btn-default" type="submit" value="Login">
-      </form>
-      {% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}
-      {% endif %}
-    </div>
+      <table>
+        <tr>
+          <th>
+          <form action="" method="post">
+            <label>Username</label>
+            <input type="text" placeholder="Username" name="username" value="{{
+              request.form.username }}"></form>
+          </th>
+        </tr>
 
-    <form action = "http://localhost:5000/up" method = "POST" 
-    enctype = "multipart/form-data">
-      <input type = "file" name = "file" />
-      <input type = "submit"/>
-    </form>
+        <tr>
+          <th>
+          <form action="" method="post">
+            <label>Password</label>
+            <input type="password" placeholder="Password" name="password" value="{{ request.form.password }}"></form>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <input class="btn btn-default" type="submit" value="Login">
+          </th>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>
