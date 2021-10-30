@@ -52,14 +52,27 @@ def output():
 
     if request.method == "POST":
         case_id = request.form.get("case_id", None)
+        approvals = case_id = int(request.form.get("selection"))
+        for document in documents:
+            file_id = document["ID"]
+            appr = request.form.get(file_id)
+            file_type = document["TYPE"]
+            file_appr = document["RESPONSIBLE"]
+            #if appr != "":
+            #    pattern = """INSERT INTO approvals( type, doc_id, status, datetime, responsible) VALUES(?, ?, ?, ?, ?);"""
+            #    cur.execute(pattern, (file_type, file_id, appr,  datetime.datetime.now(), str(file_appr)))
+            #    con.commit()
+
+
         #return redirect(url_for("output", case_id = n))
-        return redirect(url_for("add"), case_id = case_id)
+        return redirect(url_for("add"), case_id = case_id, appr = appr)
     return render_template("output.html", case_info  = case_info, documents = documents, dir = current_app.root_path, status = status)
 
 
 @app.route('/add', methods = ['GET', 'POST'])
 def add():
     case_id = request.args.get('case_id')
+    appr = request.args.get('appr')
     con = sql.connect(DATABASE)
     con.row_factory = sql.Row
     cur = con.cursor()
@@ -95,7 +108,7 @@ def add():
         #return render_template("new_document.html", users = users, case_id = case_id)
         #return render_template("output.html", case_info  = case_info, documents = documents)
         return redirect(url_for(".output", case_id = case_id))
-    return render_template("new_document.html", users = users, case_id = case_id)
+    return render_template("new_document.html", users = users, case_id = case_id, appr=appr)
 
 
 

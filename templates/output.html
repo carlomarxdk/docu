@@ -92,7 +92,7 @@
                         <td>{{row["CREATION_DATE"]}}</td>
                         <td>{{row["RESPONSIBLE"]}}</td>
                         <td> {{status[row["ID"]]}}</td>
-                        <td> <select  name="users" method = "GET" action="/">
+                        <td> <select  name={{row["ID"]}} method = "GET" action="/">
                              <option value= "" SELECTED></option>
                                 <option value= "APPROVED" > APPROVED</option>
                                 <option value= "DECLINED" > DECLINED</option>
