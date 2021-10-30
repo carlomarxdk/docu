@@ -6,6 +6,10 @@ import datetime
 from werkzeug.utils import secure_filename
 import os
 
+### NOTIFICATIONS
+import email
+import smtplib
+
 
 DATABASE = 'database/data.db'
 
