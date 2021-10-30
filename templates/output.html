@@ -1,6 +1,17 @@
 <html>
   <head>
-      <style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
 .styled-table {
     border-collapse: collapse;
     margin: 25px 0;
@@ -11,7 +22,7 @@
 }
 
 .styled-table thead tr {
-    background-color: #009879;
+    background-color: #D7211E;
     color: #ffffff;
     text-align: left;
 }
@@ -29,7 +40,7 @@
 }
 
 .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #D7211E;
 }
 
 .styled-table tbody tr.active-row {
@@ -40,17 +51,40 @@
 
 </style>
   
-  
   </head>
   <body>
-    <h2>CASE NR {{ case_info[0] }}</h2>
-    <div>
-      <h3>{{ case_info[1] }}</h3>
-      </div>
-    <div>
-        Description: {{ case_info[2] }}
-    </div>
-    <table id="myTable" class="styled-table  table-responsive">
+
+    <nav class="navbar navbar-light justify-content-between">
+        <a class="navbar-brand" href="#">
+            <img src="https://www.msf.org/themes/custom/msf_theme/ogimage.jpg" width="200" height="100" class="d-inline-block align-top" alt="" loading="lazy"></a>
+        
+            <a class="navbar-brand">CASE: {{ case_info[0] }}</a>
+            
+          <button border-color:#D7211E;> 
+
+            <a class="btn my-2 my-sm-0" role="button" href="login">Log Out</a>
+        
+        </button>
+        </form>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="justify-content-md-center">
+                <div class=rows>
+    
+                            <h3> {{ case_info[1] }}  </h3>
+                            <h5>  Description: {{ case_info[2] }} </h5>
+                        </div>
+
+
+
+
+
+
+        <div class="container-fluid">
+            <div class="justify-content-md-center">
+
+                    <table id="myTable" class="styled-table  table-responsive">
                         <thead>
                             <td>ID</td>
                             <td>Type</td>
@@ -65,8 +99,12 @@
                         <td>{{row["DOCUMENT TYPE"]}}</td>
                         <td>{{row["DESCRIPTION"]}}</td>
                 </tr>
-         {% endfor %}
+            {% endfor %}
         </table>
+                </div>
+        
+        </div>
+        
 
         <form action="/add" method="get">
             <input name="case_id" value={{case_info[0]}}
