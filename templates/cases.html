@@ -72,13 +72,13 @@
                             <td>{{row["PRICE"]}}</td>	
                             <td>{{row["RESPONSIBLE"]}}</td>	
                             <td>
-                                <form action="/" method="post">
-                                    <input type="hidden"  name="case_id" value={{row["ID"]}}>
-                                    <input type="submit"  value="Open">
+                    <form action="/" method="post">
+                        <input type="hidden"  name="case_id" value={{row["ID"]}}>
+                        <input type="submit"  value="Open">
 
-                                </form>
+                    </form>
 
-                                    </td>
+                     </td>
 
                 </tr>
          {% endfor %}

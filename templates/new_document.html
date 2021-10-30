@@ -1,25 +1,33 @@
 <html>
   <body>
     <h2>CASE NR {{ case_id }}</h2>
-
-    <div>ADD FILE:   </div>          
-   
-
-
-    <form action = "http://localhost:5000/up" method = "POST" 
+    <form action = "/add" method = "POST" 
     enctype = "multipart/form-data">
 
-    <input type = "text" name = "file" />
-    <input type = "text", name="type">
-    <option value= "{{users}}" SELECTED>{{ users }}</option>
-    <input type = "submit"/></div>
 
-     
-  
-    <form action = "http://localhost:5000/up" method = "POST" 
-    enctype = "multipart/form-data">
+
+
+    <div>File Name:   </div>          
+    <div><input type = "text" name = "file_name" /></div>
+    <div>Document Type:   </div>          
+    <div><input type = "text", name="type"></div>
+    <div>Responsible:</div>
+     <select  name="users" method = "GET" action="/">
+    {% for user in users %}
+    <option value= "{{user}}" SELECTED>{{ user["FULL NAME"]}}</option>
+          {% endfor %}
+
+    </select>
+    <div>Upload File </div>          
+    <div><input type = "text", name="type"></div>
+
     <input type = "file" name = "file" />
     <input type = "submit"/>
+    </form>
+     
+
+
+    {{res}}
 
   </body>
 </html>
